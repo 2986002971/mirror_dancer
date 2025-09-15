@@ -227,7 +227,6 @@ def make_env(cfg, test=False):
     )
 
     # 直接创建 DMControl 环境
-    # XML 解析冲突已通过设置正确的 LD_LIBRARY_PATH 解决
     env = suite.load(
         domain, task, task_kwargs={"random": cfg.seed}, visualize_reward=False
     )

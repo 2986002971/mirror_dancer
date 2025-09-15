@@ -1,5 +1,6 @@
 .pixi/*
 datasets/*
 outputs/*
+logs/*
 
 *.pyc

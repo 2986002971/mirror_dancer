@@ -86,7 +86,10 @@ def make_env(cfg, test=False):
                 if env is not None:
                     break
             except ValueError as e:
-                print(f"   {fn.__name__} 失败: {e}")
+                if "Unknown task" in str(e):
+                    print(f"   {fn.__name__} 不支持任务 {cfg.task}")
+                else:
+                    print(f"   {fn.__name__} 失败: {e}")
                 pass
             except Exception as e:
                 print(f"   {fn.__name__} 错误: {type(e).__name__}: {e}")

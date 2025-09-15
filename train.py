@@ -10,12 +10,6 @@ if str(project_root) not in sys.path:
 os.environ["MUJOCO_GL"] = "egl"
 os.environ["LAZY_LEGACY_OP"] = "0"
 
-# 直接解决 XML 解析冲突：强制设置正确的库路径
-project_root = Path(__file__).resolve().parent
-pixi_lib_path = str(project_root / ".pixi/envs/default/lib")
-current_ld_path = os.environ.get("LD_LIBRARY_PATH", "")
-if pixi_lib_path not in current_ld_path:
-    os.environ["LD_LIBRARY_PATH"] = f"{pixi_lib_path}:{current_ld_path}"
 
 import warnings
 
